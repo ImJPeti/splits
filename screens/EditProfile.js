@@ -21,8 +21,6 @@ export default function EditProfile(){
     const [userData, setUserData] = useState(null);
 
 
-  
-   
  
       const [post, setPost] = useState([]);
 
@@ -71,7 +69,7 @@ export default function EditProfile(){
             <Text style={styles.userInfoSubTitle}>Posts</Text>
           </View>
           <View style={styles.userInfoItem}>
-            <Text style={styles.userInfoTitle}>10.000</Text>
+            <Text style={styles.userInfoTitle}>88.000</Text>
             <Text style={styles.userInfoSubTitle}>Followers</Text>
           </View>
           <View style={styles.userInfoItem}>
