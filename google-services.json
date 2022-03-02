@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "601344669944",
+    "project_id": "splits-ad17a",
+    "storage_bucket": "splits-ad17a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601344669944:android:67d7c72c9a3d7ee36ee30d",
+        "android_client_info": {
+          "package_name": "host.exp.exponent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "601344669944-dpdkr53dcqfiufch5i8fqoiib5pu4p01.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBssLZGbvkQDksXn95QSknWWvxjfK5jX-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "601344669944-dpdkr53dcqfiufch5i8fqoiib5pu4p01.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "601344669944-c56ot6mbg1k8e5odvb9h2ructuua812t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "host.exp.exponent"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

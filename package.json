@@ -1,0 +1,48 @@
+{
+  "name": "splits",
+  "version": "1.1.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject",
+    "build:tailwind": "tailwindcss --input input.css --output tailwind.css --no-autoprefixer && tailwind-rn",
+    "dev:tailwind": "concurrently \"tailwindcss --input input.css --output tailwind.css --no-autoprefixer --watch\" \"tailwind-rn --watch\""
+  },
+  "dependencies": {
+    "@react-native-firebase/app": "^14.5.0",
+    "@react-native-firebase/storage": "^14.5.0",
+    "@react-navigation/native": "^6.0.8",
+    "@react-navigation/native-stack": "^6.5.0",
+    "expo": "~44.0.0",
+    "expo-google-app-auth": "~8.3.0",
+    "expo-image-picker": "~12.0.1",
+    "expo-status-bar": "~1.2.0",
+    "firebase": "^9.6.7",
+    "firestore": "^1.1.6",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-native": "0.64.3",
+    "react-native-action-button": "^2.8.5",
+    "react-native-deck-swiper": "^2.0.5",
+    "react-native-firebase": "^5.6.0",
+    "react-native-image-crop-picker": "^0.37.3",
+    "react-native-image-picker": "^4.7.3",
+    "react-native-paper": "^4.11.2",
+    "react-native-progress": "^5.0.0",
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-screens": "~3.10.1",
+    "react-native-web": "0.17.1",
+    "styled-components": "^5.3.3",
+    "tailwind-rn": "^4.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "concurrently": "^7.0.0",
+    "postcss": "^8.4.6",
+    "tailwindcss": "^3.0.18"
+  },
+  "private": true
+}
