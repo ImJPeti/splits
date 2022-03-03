@@ -26,7 +26,7 @@ export default ModalScreen =()=> {
     const [fname, setfname] = useState(null);
     const [lname, setLname] = useState(null);
     const [place, setPlace] = useState(null)
- 
+
 
 
    
@@ -62,17 +62,11 @@ export default ModalScreen =()=> {
         });
     };
     
-
-    
-    
-
-
- 
   
 
 
   return(
-  <SafeAreaView style={{flex: 1, backgroundColor: "#ffff"}}>
+  <SafeAreaView style={{flex: 1, backgroundColor: "#545489"}}>
     <ScrollView
       style={styles.container}
       contentContainerStyle={{justifyContent: 'center', alignItems: 'center'}}
@@ -81,10 +75,10 @@ export default ModalScreen =()=> {
        <Text style={styles.userName}>
          Üdvözöllek, {user.email}
        </Text>
-       <Text>Tölts fel egy képet! (Ezt fogják látni mások)</Text>
+       <Text>Tölts fel képet! (Ezt fogják látni mások)</Text>
       <TouchableOpacity onPress={handlePickAvatar} >
       <Image 
-        {...image != null ? <AddImage source={{uri: image}} /> :  null}
+        source={{uri: image}}
         style={styles.avatar}
              
        />
@@ -95,23 +89,23 @@ export default ModalScreen =()=> {
          <TextInput style={styles.adatok} 
           value={fname}
           placeholder='First Name'
-          placeholderTextColor="#666666"
-          autoCorrect={false}
+          placeholderTextColor="white"
+          autoCorrect={true}
           //value={userData ? userData.fname : ''}
           onChangeText={setfname}
          />
          <TextInput style={styles.adatok} 
          value={lname}
           placeholder='Last Name'
-          placeholderTextColor="#666666"
-          autoCorrect={false}
+          placeholderTextColor="white"
+          autoCorrect={true}
           //value={userData ? userData.lname : ''}
           onChangeText={setLname}
          />
          <TextInput style={styles.adatok} 
          value={age}
           placeholder='age'
-          placeholderTextColor="#666666"
+          placeholderTextColor="white"
           keyboardType='numeric'
           maxLength={2}
           autoCorrect={false}
@@ -121,22 +115,29 @@ export default ModalScreen =()=> {
          <TextInput style={styles.adatok} 
          value={job}
           placeholder='job'
-          placeholderTextColor="#666666"
-          autoCorrect={false}
+          placeholderTextColor="white"
+          autoCorrect={true}
           //value={userData ? userData.job : ''}
           onChangeText={setJob}
          />
          <TextInput style={styles.adatok} 
          value={place}
           placeholder='Lakhely'
-          placeholderTextColor="#666666"
-          autoCorrect={false}
+          placeholderTextColor="white"
+          autoCorrect={true}
           //value={userData ? userData.job : ''}
           onChangeText={setPlace}
          />
        </View>
 
-    <Button title='UPDATE'  onPress={handleUpdate}/>
+       <TouchableOpacity style={styles.button} onPress={handleUpdate}>
+        <Text style={styles.btext}>Update profile</Text>
+      </TouchableOpacity>
+
+
+    <TouchableOpacity onPress={logout} style={{top: "10%",}}>
+                <Text style={{bottom: 0,}}>Kijelentkezés</Text>
+    </TouchableOpacity>
     </ScrollView>
     
   </SafeAreaView>
@@ -146,7 +147,7 @@ export default ModalScreen =()=> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#545489',
     padding: 20,
   },
   adatok:{
@@ -215,10 +216,41 @@ const styles = StyleSheet.create({
   avatar:{
     width: 100,
     height: 100,
-    borderRadius: 50,
+    borderRadius: 100,
     backgroundColor: "#E1E2E6",
     marginTop: 48,
     justifyContent: "center",
     alignItems: "center",
+  },
+  UpdateProfile:{
+    marginTop: "4%",
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 25,
+    width: 250,
+    elevation: 2,
+    backgroundColor: "white",
+  },
+  btext:{
+    fontSize: 17,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    textAlign: "center",
+    letterSpacing: 1,
+    color: 'black',
+  },
+  button:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: "3%",
+    paddingHorizontal: 3,
+    borderRadius: 25,
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: "4%",
+    width: 250,
+    elevation: 2,
+    backgroundColor: "white",
+
   }
 });

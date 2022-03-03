@@ -24,9 +24,12 @@ import {
   } from '../assets/AddPost';
   import * as ImagePicker from "expo-image-picker";
   import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
-  import {doc, setDoc, serverTimestamp, collection, addDoc, onSnapshot, query} from '@firebase/firestore';
-  import {db, storage} from '../firebase';
-  import {ref, getDownloadURL, uploadString} from "@firebase/storage";
+  import {doc, setDoc, serverTimestamp, collection, addDoc, onSnapshot, query, updateDoc} from '@firebase/firestore';
+  import {db,} from '../firebase';
+  import {ref, getDownloadURL, uploadString, putFile} from "firebase/storage";
+  import storage from "../firebase";
+  
+
   const AddPostScreen = () => {
 
     const {user, logout} = useAuth(); 
@@ -37,33 +40,25 @@ import {
     const [url, setUrl] = useState();
     const [loading, setLoading] = useState(false);
     const CaptionRef =useRef(null);
-
-    const uploadPost = async() =>{
-      if(loading) return;
-
-      setLoading(true);
-
-      const docRef = await addDoc(collection(db, 'posts'), {
+    
+    const uploadPost = async () => {
+    const uploadTask = storage().ref().child(`/posts/`).putFile(fileObj.uri)
+    uploadTask.on('state_changed',
+      (snapshot)=>{
+        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        if(progress == 10) alert('Image uploaded');
         
-        username: user.displayName,
-        profileImg: user.photoURL,
-        timeStamp: serverTimestamp(),
-      });    
-      
-      console.log("New doc added wih ID", docRef.id);
-
-      const imageRef = ref(storage, `posts/${docRef.id}/image`);
-
-      await uploadString(imageRef, image, "data_url").then(async snapshot =>{
-        const downloadURL = await getDownloadURL(imageRef);
-        
-        await updateDoc(doc(db, 'posts', docRef.id), {
-          image: downloadURL
+      },
+      (error)=>{
+        alert('Hiba');
+      },
+      ()=>{
+        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL)=>{
+          console.log('File elérhető itt: ', downloadURL)
+          setImage(downloadURL);
         })
-      });
-
-      setLoading(false);
-      setImage(null);
+      }
+    );
     }
      
 
@@ -73,6 +68,11 @@ import {
             setHasGalleryPermission(GalleryStatus.status==='granted');
         })();
     }, []);
+
+
+  
+
+
 
     const handlePickAvatar=async()=>{
       let result = await ImagePicker.launchImageLibraryAsync({
@@ -125,7 +125,7 @@ import {
           <ActionButton.Item
             buttonColor="#9b59b6"
             title="Take Photo"
-             onPress={launchCamera}
+             onPress={{}}
              >
             <Icon name="camera-outline" style={styles.actionButtonIcon} />
           </ActionButton.Item>

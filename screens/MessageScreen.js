@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, TextInput, Button, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, FlatList } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, TextInput, Button,Image ,KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, FlatList } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import getMatchedUserInfo from '../lib/getMatchedUserinfo'
@@ -8,14 +8,13 @@ import SenderMessage from '../components/SenderMessage'
 import ReceiverMessage from '../components/ReceiverMessage'
 import { addDoc, collection, doc, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore'
 import { db } from '../firebase'
-
 const MessageScreen = () => {
     const {user} = useAuth();
     const {params} = useRoute();
     const [input, setInput] = useState("");
     const {matchDetails} = params;
     const [messages, setMessages] = useState([])
-
+    const [matchedUserInfo, setMatchedUserInfo]=useState(null);
     useEffect(()=>{
         onSnapshot(
             query(
@@ -45,8 +44,10 @@ const MessageScreen = () => {
     };
   return (
     <SafeAreaView style={{flex: 1}}>
-        <Header title={getMatchedUserInfo(matchDetails.users, user.uid).lname}
-         />
+        <Header title={getMatchedUserInfo(matchDetails.users, user.uid).lname}></Header>
+        <View>
+            
+        </View>
         <KeyboardAvoidingView
             behavior={Platform.OS=== "ios" ? "padding": "height"}
             style={{flex: 1}}

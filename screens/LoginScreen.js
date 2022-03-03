@@ -19,7 +19,12 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+      <ImageBackground source={require('../assets/Background.png')} resizeMode="cover" style={styles.image}>
+
+      <Text style={styles.Splits}>
+        SPLITS
+      </Text>
+
       <TouchableOpacity style={styles.button} onPress={signInWithGoogle}>
         <Text style={styles.btext}>Login with Google</Text>
       </TouchableOpacity>
@@ -37,6 +42,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'black',
     flexDirection: "row",
+  },
+  Splits:{
+    color: "rgba(221,202,233,255)",
+    textAlign: "center",
+    top: "25%",
+    fontSize: 30,
+    fontWeight: "bold",
+    letterSpacing: 4,
   },
   LoginWithEmail:{
     backgroundColor: "white",
@@ -78,7 +91,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     marginLeft: "auto",
     marginRight: "auto",
-    marginTop: 420,
+    marginTop: 350,
     width: 250,
     elevation: 2,
     backgroundColor: "white",
