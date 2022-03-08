@@ -5,11 +5,9 @@ const ReceiverMessage = ({message}) => {
   return (
     <View style={{
             backgroundColor: "red",
-            opacity: 0.60,
-            borderTopLeftRadius: 0,
-            borderRadius: 30,
-            paddingHorizontal: 5,
-            paddingVertical: 3,
+            opacity: 1,
+            borderRadius: 10,
+            padding: 3,
             marginLeft: 20,
             top: 40,
             marginHorizontal: 3,

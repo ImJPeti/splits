@@ -38,8 +38,8 @@ export default ModalScreen =()=> {
         job: job,
         age: age,
         fname: fname,
-        lname: lname,
         place: place,
+        lname: lname,
         timestamp: serverTimestamp()
       }).then(()=>{
         navigation.navigate('Home')

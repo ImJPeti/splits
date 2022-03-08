@@ -14,11 +14,11 @@ const MatchedScreen = () => {
     const {loggedInProfile, userSwiped} = params;
 
   return (
-    <View style={{height: "100%", backgroundColor:"#b14ddb",paddingTop: 20, opacity: 0.89}}>
+    <View style={{height: "100%", backgroundColor:"#b0a9d6",paddingTop: 20, opacity: 0.89}}>
         <View style={{justifyContent: 'center', paddingHorizontal: 10, paddingTop: 20}}>
-            <Text style={{color: "white", fontSize: 40, paddingTop:130, marginLeft: "auto", marginRight: "auto"}}>It's a Match</Text>
+            <Text style={{color: "black", fontSize: 40, paddingTop:130, marginLeft: "auto", marginRight: "auto"}}>It's a Match</Text>
         </View>
-        <Text style={{color: "white", textAlign: 'center', marginTop: "5%", fontSize: 15}}>
+        <Text style={{color: "black", textAlign: 'center', marginTop: "5%", fontSize: 15}}>
             You and {userSwiped.fname} {userSwiped.lname} have liked each other.
         </Text>
 

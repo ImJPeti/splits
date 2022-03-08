@@ -22,9 +22,9 @@ import {
   query,
   getDocs,
   where,
+  orderBy,
   getDoc,
   serverTimestamp,
-  orderBy,
 } from "@firebase/firestore";
 import { Firestore } from "firebase/firestore";
 import ImagePicker from "react-native-image-picker";
@@ -56,6 +56,8 @@ export default function EditProfile() {
       ),
     [db]
   );
+
+
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#ffff" }}>

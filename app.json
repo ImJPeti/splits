@@ -1,12 +1,12 @@
 {
   "expo": {
     "name": "splits",
-    "slug": "alpha",
+    "slug": "splits",
     "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/Background.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,7 +17,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.imjpeti.alpha"
     },
     "android": {
       "adaptiveIcon": {

@@ -135,30 +135,17 @@ const HomeScreen = () => {
   };
 
   return (
-    <SafeAreaView style={styles.SafeAreaView}>
-      {/*Header*/}
-      <View style={styles.View}>
-        <TouchableOpacity
-          style={styles.TouchableOpacity}
-          onPress={() => navigation.navigate("EditProfile")}
-        >
-          <Image style={styles.profileimg} source={{ uri: user.photoURL }} />
-        </TouchableOpacity>
+    <SafeAreaView style={styles.SafeAreaView}>  
+
+      <View>
         <TouchableOpacity>
           <Text style={styles.Splits}>SPLITS</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.chatBubble}
-          onPress={() => navigation.navigate("Chat")}
-        >
-          <Ionicons name="chatbubbles-sharp" size={40} color="#ddcae9" />
-        </TouchableOpacity>
       </View>
-      {/* End Header*/}
+
 
       {/* Card */}
-      <View style={{ flex: 1, height: 100 }}>
+      <View style={{ flex: 1, height: 120, top: 0 }}>
         <Swiper
           ref={swipeRef}
           cards={profiles}
@@ -204,7 +191,7 @@ const HomeScreen = () => {
                       {card.fname} {card.lname}
                     </Text>
                     <Text
-                      style={{ paddingRight: 13, paddingTop: 10, fontSize: 18 }}
+                      style={{ paddingRight: 13, padding: 10, fontSize: 18, bottom: 5, }}
                     >
                       {card.job}
                     </Text>
@@ -212,9 +199,9 @@ const HomeScreen = () => {
                   <Text style={styles.age}>{card.age}</Text>
                   <Text style={styles.location}>
                     <Ionicons
-                      name="location-outline"
+                      name="location-sharp"
                       size={18}
-                      color="#FF5864"
+                      color="#b0a9d6"
                     />{" "}
                     {card.place}
                   </Text>
@@ -245,8 +232,33 @@ const HomeScreen = () => {
           }
         />
       </View>
+      
+  {/*FOOTER NAV*/}
+  <View style={styles.View}>
+        <TouchableOpacity
+          style={styles.TouchableOpacity}
+          onPress={() => navigation.navigate("EditProfile")}
+        >
+          <Ionicons name="ios-person" size={40} color="#b0a9d6"/>
+        </TouchableOpacity>
 
-      {/* 
+        <TouchableOpacity
+          onPress={{}}
+        >
+          <Ionicons name="car-sport-sharp" size={40} color="#b0a9d6"/>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.chatBubble}
+          onPress={() => navigation.navigate("Chat")}
+        >
+          <Ionicons name="chatbubble-sharp" size={40} color="#b0a9d6"/>
+        </TouchableOpacity>
+      </View>
+      {/* End FOOTER NAV*/}
+
+    </SafeAreaView>
+     /* { 
      <View style={styles.bottomnav}>
             <TouchableOpacity style={styles.nop}
               onPress={()=>swipeRef.current.swipeLeft()}
@@ -261,8 +273,8 @@ const HomeScreen = () => {
               <AntDesign name='heart' size={27} color='#32a852' />
             </TouchableOpacity>
      </View>
-  */}
-    </SafeAreaView>
+  }*/
+     
   );
 };
 
@@ -278,7 +290,8 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     marginLeft: "auto",
     marginRight: "auto",
-    top: 5,
+    top: 3,
+    alignItems: 'center',
     padding: 5,
   },
   TouchableOpacity: {
@@ -287,30 +300,46 @@ const styles = StyleSheet.create({
     top: 3,
   },
   Splits: {
-    top: "20%",
-    fontSize: 20,
+    top: "10%",
+    fontSize: 28,
     marginTop: "2%",
     fontWeight: "bold",
-    color: "rgba(221,202,233,255)",
+    color: "#b0a9d6",
     marginLeft: "auto",
     marginRight: "auto",
   },
   View: {
     alignItems: "center",
     position: "relative",
+    alignContent: "center",
     padding: 5,
+    top: 0,
+    backgroundColor: "white",
+    height: "8%",
+    marginLeft: "auto",
+    marginRight: "auto",
+    borderBottomColor: "black",
+    borderTopColor: "black",
+    width: "50%",
+    borderRadius: 20,
+    marginBottom: "5%",
+    shadowColor: "grey",
+    shadowOffset:{width:0, height: 2},
+    shadowOpacity: 2,
+    shadowRadius: 2,
   },
   chatBubble: {
     position: "absolute",
     right: 3,
     marginLeft: "auto",
     marginRight: "auto",
-    top: 5,
-    padding: 5,
+    top: 3,
+    alignItems: "center",
+    padding: 1,
   },
   SwiperCard: {
     backgroundColor: "white",
-    height: 450,
+    height: 400,
     top: 0,
     borderRadius: 15,
     position: "relative",
@@ -325,47 +354,50 @@ const styles = StyleSheet.create({
   },
   SafeAreaView: {
     flex: 1,
-    backgroundColor: "#545489",
+    backgroundColor: "white",
   },
   CardImg: {
     flex: 1,
     resizeMode: "cover",
     borderRadius: 15,
+    height: "100%",
     top: 0,
   },
   name: {
     fontSize: 22,
+    padding: 10,
     fontWeight: "bold",
   },
   age: {
     right: 0,
     textAlign: "right",
     position: "absolute",
-    paddingTop: 10,
-    paddingRight: 10,
-    fontSize: 20,
+    padding: 10,
+    fontSize: 22,
     fontWeight: "bold",
   },
   location: {
     right: 0,
     textAlign: "right",
     position: "absolute",
-    top: "65%",
-    paddingRight: 10,
+    top: "55%",
+    padding: 10,
     fontSize: 15,
   },
   details: {
     position: "absolute",
-    bottom: 0,
+    bottom: 2.5,
     backgroundColor: "white",
     height: 80,
-    width: "100%",
-    borderBottomEndRadius: 15,
-    borderBottomStartRadius: 15,
+    width: "90%",
+    marginLeft: "5%",
+    borderRadius: 15,
     flexDirection: "row",
     textAlign: "center",
-    paddingTop: 10,
-    paddingLeft: 10,
+    shadowColor: "grey",
+    shadowOffset:{width:0, height: 2},
+    shadowOpacity: 2,
+    shadowRadius: 2,
   },
   bottomnav: {
     flexDirection: "row",

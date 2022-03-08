@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, TextInput, Button,Image ,KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, FlatList } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, TextInput, Button,Image ,KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, FlatList, Animated, Easing, } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import getMatchedUserInfo from '../lib/getMatchedUserinfo'
@@ -42,6 +42,9 @@ const MessageScreen = () => {
 
         setInput("");
     };
+
+    
+
   return (
     <SafeAreaView style={{flex: 1}}>
         <Header title={getMatchedUserInfo(matchDetails.users, user.uid).lname}></Header>
@@ -82,15 +85,24 @@ const MessageScreen = () => {
             paddingVertical: "2%",
             borderTopColor: "grey",
             backgroundColor: "white",
-            bottom: "10%",
+            bottom: 2.5,
             justifyContent: "space-between",
+            shadowColor: "grey",
+             shadowOffset:{width:0, height: 2},
+            shadowOpacity: 2,
+            shadowRadius: 2,
+            width: "80%",
+            marginLeft: "auto",
+            marginRight: "auto",
+            borderRadius: 15,
              }}>
           <TextInput
             style={{
                 height: 15,
-                width: 150,
+                width: 20,
                 flex: 1,
                 textAlign: 'left',
+
             }}
             placeholder="Send Message..."
             onChangeText={setInput}
