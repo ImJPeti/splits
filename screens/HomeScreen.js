@@ -7,6 +7,7 @@ import {
   Image,
   StyleSheet,
   ViewComponent,
+  Platform,
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import React, { useLayoutEffect, useRef, useState, useEffect } from "react";
@@ -26,12 +27,34 @@ import {
   serverTimestamp,
 } from "@firebase/firestore";
 import generateId from "../lib/generateId";
+import {AdMobBanner,
+  AdMobInterstitial,
+  PublisherBanner,
+  AdMobRewarded,
+  setTestDeviceIDAsync,} from "expo-ads-admob";
+//IOS HOME: ca-app-pub-3666417548845300/2874153739
+//IOS CHAT: ca-app-pub-3666417548845300/3590191805
+
+//ADROID HOME: ca-app-pub-3666417548845300/3777894065
+//ADROIND CHAT: ca-app-pub-3666417548845300/1890097326
 
 const HomeScreen = () => {
   const navigation = useNavigation();
   const { user, logout } = useAuth();
   const [profiles, setProfiles] = useState([]);
   const swipeRef = useRef(null);
+
+
+  let adUnitId = Platform.select({
+    ios: "ca-app-pub-3666417548845300/9082191636",
+    android: "ca-app-pub-3666417548845300/3777894065",
+  });
+  let loadAd = async()=>{
+    await AdMobBanner.setAdUnitId(adUnitId);
+    await AdMobBanner.requestAdAsync();
+  }
+  
+loadAd();
 
   useLayoutEffect(
     () =>
@@ -201,7 +224,7 @@ const HomeScreen = () => {
                     <Ionicons
                       name="location-sharp"
                       size={18}
-                      color="#b0a9d6"
+                      color="#273c5a"
                     />{" "}
                     {card.place}
                   </Text>
@@ -239,20 +262,20 @@ const HomeScreen = () => {
           style={styles.TouchableOpacity}
           onPress={() => navigation.navigate("EditProfile")}
         >
-          <Ionicons name="ios-person" size={40} color="#b0a9d6"/>
+          <Ionicons name="ios-person" size={40} color="#273c5a"/>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={{}}
         >
-          <Ionicons name="car-sport-sharp" size={40} color="#b0a9d6"/>
+          <Ionicons name="car-sport-sharp" size={40} color="#273c5a"/>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.chatBubble}
           onPress={() => navigation.navigate("Chat")}
         >
-          <Ionicons name="chatbubble-sharp" size={40} color="#b0a9d6"/>
+          <Ionicons name="chatbubble-sharp" size={40} color="#273c5a"/>
         </TouchableOpacity>
       </View>
       {/* End FOOTER NAV*/}
@@ -304,7 +327,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     marginTop: "2%",
     fontWeight: "bold",
-    color: "#b0a9d6",
+    color: "#273c5a",
     marginLeft: "auto",
     marginRight: "auto",
   },

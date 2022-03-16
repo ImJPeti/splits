@@ -14,12 +14,14 @@ import getMatchedUserInfo from "../lib/getMatchedUserinfo";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase";
 import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
+import ChatRowHeader from "./ChatRowHeader";
+import Header from "./Header";
 
 const ChatRow = ({ matchDetails }) => {
   const navigation = useNavigation();
   const { user } = useAuth();
   const [matchedUserInfo, setMatchedUserInfo] = useState(null);
-  const [lastMessage, setLastMessage] =useState("");
+  const [lastMessage, setLastMessage] = useState("");
 
   useEffect(() => {
     setMatchedUserInfo(getMatchedUserInfo(matchDetails.users, user.uid));
@@ -37,50 +39,8 @@ const ChatRow = ({ matchDetails }) => {
     [matchDetails, db]
   );
   return (
+    
     <View>
-        <View>
-        <Ionicons name="chatbubbles-sharp" size={50} color="#ddcae9" style={{marginLeft:'auto',marginRight:"auto"}}/>
-        </View>
-        
-        <View>
-        <Text style={{
-          top: 5,
-          left: 1,
-          padding: 10,
-          fontSize: 20,
-          fontWeight: "bold",
-          color: "#545489",
-        }}>
-            Új Matchek
-        </Text>
-        
-            <ScrollView horizontal={true} style={{height: 90}}>
-                <Image
-                style={{
-                    borderRadius: 100,
-                    height: 80,
-                    alignItems: "center",
-                    left: 17,
-                    padding: 10,
-                    top: 4,
-                    width: 80,
-                }}
-                source={{ uri: matchedUserInfo?.photoURL }}
-                />
-            </ScrollView>
-      </View>
-      <Text
-        style={{
-          top: 15,
-          left: 1,
-          padding: 10,
-          fontSize: 20,
-          fontWeight: "bold",
-          color: "#545489",
-        }}
-      >
-        Üzenetek
-      </Text>
 
       <TouchableOpacity
         style={{
@@ -125,8 +85,8 @@ const ChatRow = ({ matchDetails }) => {
             {lastMessage || "Say hi!"}
           </Text>
         </View>
-       
       </TouchableOpacity>
+
     </View>
   );
 };
