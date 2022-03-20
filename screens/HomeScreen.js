@@ -120,7 +120,7 @@ loadAd();
       await getDoc(doc(db, "users", user.uid))
     ).data();
 
-    //check if the user swiped on you
+    //Megnézzük, hogy a felhasználó jobbra húzott-e
     getDoc(doc(db, "users", userSwiped.id, "swipes", user.uid)).then(
       (DocumentSnapshot) => {
         if (DocumentSnapshot.exists()) {

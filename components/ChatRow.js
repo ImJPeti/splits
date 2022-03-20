@@ -16,16 +16,23 @@ import { db } from "../firebase";
 import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
 import ChatRowHeader from "./ChatRowHeader";
 import Header from "./Header";
+import { SafeAreaView } from "react-native-safe-area-context";
+import getNewMatchesInfo from "../lib/getNewMatchesInfo";
 
-const ChatRow = ({ matchDetails }) => {
+const ChatRow = ({ matchDetails, newMatches }) => {
   const navigation = useNavigation();
   const { user } = useAuth();
   const [matchedUserInfo, setMatchedUserInfo] = useState(null);
+  const [NewMatchedUserInfo, setNewMatchedUserInfo] =useState(null)
   const [lastMessage, setLastMessage] = useState("");
 
   useEffect(() => {
     setMatchedUserInfo(getMatchedUserInfo(matchDetails.users, user.uid));
-  }, [matchDetails, user]);
+  }, [matchDetails, newMatches, user]);
+
+
+
+
 
   useEffect(
     () =>
@@ -38,10 +45,14 @@ const ChatRow = ({ matchDetails }) => {
       ),
     [matchDetails, db]
   );
-  return (
-    
-    <View>
 
+
+
+
+
+  return (
+      <SafeAreaView>
+    
       <TouchableOpacity
         style={{
           top: 20,
@@ -61,8 +72,8 @@ const ChatRow = ({ matchDetails }) => {
         <Image
           style={{
             borderRadius: 100,
-            height: 80,
-            width: 80,
+            height: 90,
+            width: 90,
           }}
           source={{ uri: matchedUserInfo?.photoURL }}
         />
@@ -86,11 +97,21 @@ const ChatRow = ({ matchDetails }) => {
           </Text>
         </View>
       </TouchableOpacity>
-
-    </View>
+      </SafeAreaView>
   );
 };
 
 export default ChatRow;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  rowContainer:{
+    flexDirection: "row",
+    alignSelf:'stretch',
+  },
+  container:{
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "flex-start",
+  }
+  
+});
