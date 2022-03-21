@@ -3,10 +3,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import ChatScreen from './screens/ChatScreen';
 import LoginScreen from './screens/LoginScreen';
-import EditProfile from './screens/EditProfile';
+import MyPofile from './screens/MyProfile';
 import AddPostScreen from './screens/AddPostScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import useAuth  from './hooks/useAuth';
+import EditProfile from './screens/EditProfile';
 import ModalScreen from './screens/ModalScreen';
 import MatchedScreen from './screens/MatchedScreen';
 import MessageScreen from './screens/MessageScreen';
@@ -25,7 +26,8 @@ const StackNavigator = () => {
               <Stack.Screen name='Home' component={HomeScreen} />
               <Stack.Screen name='Chat' component={ChatScreen} />
               <Stack.Screen name='Message' component={MessageScreen} />
-              <Stack.Screen name='EditProfile' component={EditProfile} />
+              <Stack.Screen name='MyProfile' component={MyPofile} />
+              <Stack.Screen name="EditProfile" component={EditProfile} />
               <Stack.Screen name='Post' component={AddPostScreen} />
               <Stack.Screen name='Register' component={RegisterScreen} />
             </Stack.Group>

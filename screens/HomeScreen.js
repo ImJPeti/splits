@@ -260,7 +260,7 @@ loadAd();
   <View style={styles.View}>
         <TouchableOpacity
           style={styles.TouchableOpacity}
-          onPress={() => navigation.navigate("EditProfile")}
+          onPress={() => navigation.navigate("MyProfile")}
         >
           <Ionicons name="ios-person" size={40} color="#273c5a"/>
         </TouchableOpacity>

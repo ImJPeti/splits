@@ -66,16 +66,12 @@ export default ModalScreen =()=> {
 
 
   return(
-  <SafeAreaView style={{flex: 1, backgroundColor: "#545489"}}>
+  <SafeAreaView style={{flex: 1, backgroundColor: "white"}}>
     <ScrollView
       style={styles.container}
       contentContainerStyle={{justifyContent: 'center', alignItems: 'center'}}
       showsVerticalScrollIndicator={false}
     >
-       <Text style={styles.userName}>
-         Üdvözöllek, {user.email}
-       </Text>
-       <Text>Tölts fel képet! (Ezt fogják látni mások)</Text>
       <TouchableOpacity onPress={handlePickAvatar} >
       <Image 
         source={{uri: image}}
@@ -86,6 +82,9 @@ export default ModalScreen =()=> {
       
 
        <View>
+         <Text
+          style={{marginTop: 2}}
+         >Vezetéknév</Text>
          <TextInput style={styles.adatok} 
           value={fname}
           placeholder='First Name'
@@ -147,16 +146,16 @@ export default ModalScreen =()=> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#545489',
+    backgroundColor: 'white',
     padding: 20,
   },
   adatok:{
     width: 300,
     left: "1%",
-    padding: 10,
-    marginTop: 10,
+    padding: 15,
+    marginTop: 14,
     borderWidth:2,
-    borderRadius: 10,
+    borderRadius: 100,
   },
   userImg: {
     height: 150,
