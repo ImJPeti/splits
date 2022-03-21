@@ -75,7 +75,7 @@ loadAd();
       ).then((snapshot) => snapshot.docs.map((doc) => doc.id));
 
       const swipes = await getDocs(
-        collection(db, "users", user.uid, "passes")
+        collection(db, "users", user.uid, "swipes")
       ).then((snapshot) => snapshot.docs.map((doc) => doc.id));
 
       const passedUserIds = passes.length > 0 ? passes : ["test"];
