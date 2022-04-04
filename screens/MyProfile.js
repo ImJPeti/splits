@@ -81,9 +81,9 @@ export default function MyPofile() {
         </Text>
         <TouchableOpacity
           onPress={() => navigation.navigate("EditProfile")}
-          style={{ padding: 3 }}
-        >
-          <Ionicons name="settings-sharp" size={30} color="#273c5a" />
+          style={{ padding: 3 }} 
+        > 
+        <Text>Beállítások</Text>
         </TouchableOpacity>
       </View>
       <ScrollView
@@ -105,6 +105,8 @@ export default function MyPofile() {
         <Image style={styles.userImg} source={{ uri: user.photoURL }} />
         <Text style={styles.userName}>{user.displayName}</Text>
         </View>
+        
+            
         <Text
           style={{
             marginRight: "auto",
@@ -180,6 +182,7 @@ export default function MyPofile() {
           </View>
         </View>
       */}
+      
       <Text
           style={{
             marginRight: "auto",
@@ -236,18 +239,22 @@ export default function MyPofile() {
           </View>
         </View>
       </ScrollView>
-      <TouchableOpacity onPress={() => navigation.navigate("Post")}>
-        <Ionicons
-          name="add-circle-sharp"
-          size={40}
-          color="#273c5a"
-          style={{
-            marginLeft: "auto",
-            marginRight: "7%",
-            bottom: "20%",
-          }}
-        />
-      </TouchableOpacity>
+      <View >
+        <TouchableOpacity onPress={() => navigation.navigate("Post")} style={{
+        
+        }}>
+          <Ionicons
+            name="add-circle-sharp"
+            size={40}
+            color="#273c5a"
+            style={{
+              marginLeft: "auto",
+              marginRight: "7%",
+              bottom: "2%",
+            }}
+             />
+        </TouchableOpacity>
+        </View>
     </SafeAreaView>
   );
 }

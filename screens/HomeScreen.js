@@ -221,11 +221,7 @@ loadAd();
                   </View>
                   <Text style={styles.age}>{card.age}</Text>
                   <Text style={styles.location}>
-                    <Ionicons
-                      name="location-sharp"
-                      size={18}
-                      color="#273c5a"
-                    />{" "}
+                   {" "}
                     {card.place}
                   </Text>
                 </View>
@@ -266,7 +262,7 @@ loadAd();
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={{}}
+          onPress={()=>navigation.navigate("Cab")}
         >
           <Ionicons name="car-sport-sharp" size={40} color="#273c5a"/>
         </TouchableOpacity>

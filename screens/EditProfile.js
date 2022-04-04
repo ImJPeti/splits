@@ -32,6 +32,7 @@ import {
   import getMatchedUserInfo from "../lib/getMatchedUserinfo";
   import AddPostScreen from "./AddPostScreen";
   import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
+
   import Header from "../components/Header";
 
  export default function EditProfile(){
@@ -86,6 +87,9 @@ import {
             }>
             <Image style={styles.userImg} source={{ uri: user.photoURL }} />
             <Text style={styles.userName}>{user.displayName}</Text>
+            <TouchableOpacity onPress={() => navigation.navigate("Modal")} style={{ bottom: "5%", marginLeft: "10%"}}>
+            <Ionicons style={{marginTop: "auto", marginBottom: "auto",}} name="brush-outline" size={30} color="black" />
+            </TouchableOpacity>
             </View>
           <ScrollView
             style={styles.container}
@@ -120,6 +124,7 @@ import {
                             <Text style={{fontSize: 20, fontWeight: "bold", top: "8%", left: "10%"}}>
                                 Achievements
                             </Text>
+                               
                         </View>
                         </TouchableOpacity>
 
@@ -130,7 +135,7 @@ import {
                         <View style={{flexDirection: "row", paddingTop: "15%"}}>
                             
                             <View style={{backgroundColor: "#909694", padding: "5%", borderRadius:100, width: 55, height: 55, alignItems:"center", opacity: 0.8}}>
-                                <Ionicons style={{marginTop: "auto", marginBottom: "auto"}} name="shield-outline" size={30} color="white" />
+                                <Ionicons style={{marginTop: "auto", marginBottom: "auto"}} name="finger-print-outline" size={30} color="white" />
                             </View>
                             <Text style={{fontSize: 20, fontWeight: "bold", top: "8%", left: "10%"}}>
                                 Privacy

@@ -14,7 +14,7 @@ import {
   SubmitBtnText,
   StatusWrapper,
 } from '../assets/AddPost';
-
+import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
 export default ModalScreen =()=> {
   const navigation = useNavigation();
     const { user, logout } =useAuth();
@@ -79,7 +79,8 @@ export default ModalScreen =()=> {
              
        />
        </TouchableOpacity>
-      
+        <Ionicons style={{marginTop: "auto", marginBottom: "auto"}} name="medal-outline" size={30} color="grey" />
+                            
 
        <View>
          <Text

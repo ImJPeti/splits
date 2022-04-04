@@ -11,6 +11,7 @@ import EditProfile from './screens/EditProfile';
 import ModalScreen from './screens/ModalScreen';
 import MatchedScreen from './screens/MatchedScreen';
 import MessageScreen from './screens/MessageScreen';
+import CabScreen from './screens/CabScreen';
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
@@ -30,6 +31,7 @@ const StackNavigator = () => {
               <Stack.Screen name="EditProfile" component={EditProfile} />
               <Stack.Screen name='Post' component={AddPostScreen} />
               <Stack.Screen name='Register' component={RegisterScreen} />
+              <Stack.Screen name='Cab' component={CabScreen} />
             </Stack.Group>
             <Stack.Group screenOptions={ {presentation:'modal'} }>
             <Stack.Screen name='Modal' component={ModalScreen} />

@@ -85,7 +85,7 @@ const ChatRow = ({ matchDetails, newMatches }) => {
               fontWeight: "bold",
             }}
           >
-            {matchedUserInfo.fname} {matchedUserInfo.lname}
+            {matchedUserInfo?.fname} {matchedUserInfo?.lname}
           </Text>
           <Text
             style={{
