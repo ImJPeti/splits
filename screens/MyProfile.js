@@ -33,7 +33,7 @@ import getMatchedUserInfo from "../lib/getMatchedUserinfo";
 import AddPostScreen from "./AddPostScreen";
 import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
 import Header from "../components/Header";
-
+import Status from "../components/Status";
 
 
 
@@ -119,53 +119,8 @@ export default function MyPofile() {
           My Status
         </Text>
 
-        <ScrollView
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          pagingEnabled={true}
-          contentContainerStyle={{
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          style={{
-            flex: 1,
-            height: 100,
-            width: deviceWidth,
-          }}
-        >
-          <View
-            style={{
-              flexDirection: "row",
-              flex: 1,
-              alignContent: "center",
-              height: 90,
-              width: 250,
-              padding: "5%",
-            }}
-          >
-            <TouchableOpacity style={styles.status1}>
-              <Image
-                style={styles.icon}
-                source={require("../assets/sleeping-face.png")}
-              />
-              <Text style={styles.StatusTxt}>Away</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.status2}>
-              <Image
-                style={styles.icon}
-                source={require("../assets/desktop-computer.png")}
-              />
-              <Text style={styles.StatusTxt}>At Work</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.status3}>
-              <Image
-                style={styles.icon}
-                source={require("../assets/video-game.png")}
-              />
-              <Text style={styles.StatusTxt}>Gaming</Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
+          <Status />
+       
         {/*
         <View style={styles.userInfoWrapper}>
           <View style={styles.userInfoItem}>

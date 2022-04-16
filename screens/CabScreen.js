@@ -4,7 +4,11 @@ import {Provider} from "react-redux";
 import { store } from '../store';
 import tw from "tailwind-react-native-classnames";
 import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
-
+import NavOption from '../components/NavOption';
+import Header from '../components/Header';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import { GOOGLE_MAPS_APIKEY } from "@env";
 
 export default function CabScreen(){
   
@@ -13,16 +17,22 @@ export default function CabScreen(){
   
 return (
     <Provider store={store}>
-        <SafeAreaView style={tw`bg-white h-full`}>
+        <SafeAreaView>
+            <Header />
             <View style={tw`p-5`}>
                 <Text style={styles.Splits}>SPLITS</Text>
             </View>
-            <TouchableOpacity style={ tw`bg-gray-200 p-2 pl-6 pb-8 pt-4 m-2 w-40`} >
-                <View>
-                   
-                </View>
-            </TouchableOpacity>
+
+    <GooglePlacesAutocomplete
+        placeholder='Where from?'
+        nearbyPlacesAPI='GooglePlacesSearch'
+        debounce={400}
+
+    />
+
+            <NavOption />
         </SafeAreaView>
+        
     </Provider>
   )
 }
