@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
-import {Provider} from "react-redux";
-import { store } from '../store';
+import {useDispatch} from "react-redux";
 import tw from "tailwind-react-native-classnames";
 import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
 import NavOption from '../components/NavOption';
@@ -9,14 +8,15 @@ import Header from '../components/Header';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_APIKEY } from "@env";
+import { setDestination, setOrigin } from '../slices/navSlice';
 
 export default function CabScreen(){
-  
+  const dispatch = useDispatch();
 
 
   
 return (
-    <Provider store={store}>
+    
         <SafeAreaView>
             <Header />
             <View style={tw`p-5`}>
@@ -25,6 +25,31 @@ return (
 
     <GooglePlacesAutocomplete
         placeholder='Where from?'
+        styles={{
+            container:{
+                flex:0,
+            },
+            textInput:{
+                fontSize: 18,
+            }
+        }}
+        onPress={(data, details = null)=>{
+            dispatch(
+                setOrigin({
+                location: details.geometry.location,
+                description: data.description,
+            })
+        );
+            dispatch(setDestination(null));
+        }}
+        fetchDetails={true}
+        returnKeyType={'search'}
+        minLength={2}
+        enablePoweredByContainer={false}
+        query={{
+            key: 'AIzaSyBW75u9H17j1HwSs1UBvXABmeArjxOfg3w',
+            language: 'hu',
+        }}
         nearbyPlacesAPI='GooglePlacesSearch'
         debounce={400}
 
@@ -32,8 +57,6 @@ return (
 
             <NavOption />
         </SafeAreaView>
-        
-    </Provider>
   )
 }
 
