@@ -48,9 +48,7 @@ const MessageScreen = () => {
   return (
     <SafeAreaView style={{flex: 1}}>
         <Header title={getMatchedUserInfo(matchDetails.users, user.uid).lname}></Header>
-        <View>
-            
-        </View>
+        
         <KeyboardAvoidingView
             behavior={Platform.OS=== "ios" ? "padding": "height"}
             style={{flex: 1}}

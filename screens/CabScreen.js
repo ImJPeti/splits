@@ -9,16 +9,17 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_APIKEY } from "@env";
 import { setDestination, setOrigin } from '../slices/navSlice';
+import useAuth from '../hooks/useAuth';
+
 
 export default function CabScreen(){
   const dispatch = useDispatch();
-
+  const { user, logout } =useAuth();
 
   
 return (
     
         <SafeAreaView>
-            <Header />
             <View style={tw`p-5`}>
                 <Text style={styles.Splits}>SPLITS</Text>
             </View>
@@ -56,6 +57,9 @@ return (
     />
 
             <NavOption />
+            <View>
+                <Text>{user.place}</Text>
+            </View>
         </SafeAreaView>
   )
 }
