@@ -89,7 +89,7 @@ export default ModalScreen =()=> {
          <TextInput style={styles.adatok} 
           value={fname}
           placeholder='First Name'
-          placeholderTextColor="white"
+          placeholderTextColor="black"
           autoCorrect={true}
           //value={userData ? userData.fname : ''}
           onChangeText={setfname}
@@ -97,7 +97,7 @@ export default ModalScreen =()=> {
          <TextInput style={styles.adatok} 
          value={lname}
           placeholder='Last Name'
-          placeholderTextColor="white"
+          placeholderTextColor="black"
           autoCorrect={true}
           //value={userData ? userData.lname : ''}
           onChangeText={setLname}
@@ -105,7 +105,7 @@ export default ModalScreen =()=> {
          <TextInput style={styles.adatok} 
          value={age}
           placeholder='age'
-          placeholderTextColor="white"
+          placeholderTextColor="black"
           keyboardType='numeric'
           maxLength={2}
           autoCorrect={false}
@@ -115,7 +115,7 @@ export default ModalScreen =()=> {
          <TextInput style={styles.adatok} 
          value={job}
           placeholder='job'
-          placeholderTextColor="white"
+          placeholderTextColor="black"
           autoCorrect={true}
           //value={userData ? userData.job : ''}
           onChangeText={setJob}
@@ -123,7 +123,7 @@ export default ModalScreen =()=> {
          <TextInput style={styles.adatok} 
          value={place}
           placeholder='Lakhely'
-          placeholderTextColor="white"
+          placeholderTextColor="black"
           autoCorrect={true}
           //value={userData ? userData.job : ''}
           onChangeText={setPlace}

@@ -13,6 +13,7 @@ import MatchedScreen from './screens/MatchedScreen';
 import MessageScreen from './screens/MessageScreen';
 import CabScreen from './screens/CabScreen';
 import MapScreen from './screens/MapScreen';
+import SuccessFullOrder from './screens/SuccessFullOrder';
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
@@ -34,6 +35,8 @@ const StackNavigator = () => {
               <Stack.Screen name='Register' component={RegisterScreen} />
               <Stack.Screen name='Cab' component={CabScreen} />
               <Stack.Screen name='MapScreen' component={MapScreen} />
+              <Stack.Screen name='SuccessFullOrder' component={SuccessFullOrder} />
+          
             </Stack.Group>
             <Stack.Group screenOptions={ {presentation:'modal'} }>
             <Stack.Screen name='Modal' component={ModalScreen} />

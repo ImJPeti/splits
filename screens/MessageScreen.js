@@ -49,11 +49,7 @@ const MessageScreen = () => {
     <SafeAreaView style={{flex: 1}}>
         <Header title={getMatchedUserInfo(matchDetails.users, user.uid).lname}></Header>
         
-        <KeyboardAvoidingView
-            behavior={Platform.OS=== "ios" ? "padding": "height"}
-            style={{flex: 1}}
-            keyboardVerticalOffset={10}
-        >
+       
             
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <FlatList 
@@ -109,7 +105,7 @@ const MessageScreen = () => {
           />
           <Button title='send' onPress={sendMessage} color="#FF5864"/>
           </View>
-        </KeyboardAvoidingView>
+       
     </SafeAreaView>
   )
 }
