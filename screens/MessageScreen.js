@@ -46,9 +46,10 @@ const MessageScreen = () => {
     
 
   return (
-    <SafeAreaView style={{flex: 1}}>
-        <Header title={getMatchedUserInfo(matchDetails.users, user.uid).lname}></Header>
-        
+    <View style={{flex: 1, backgroundColor: "white"}}>
+        <View style={styles.header}>
+            <Text style={styles.chatName}>{getMatchedUserInfo(matchDetails.users, user.uid).lname} {getMatchedUserInfo(matchDetails.users, user.uid).fname}</Text>
+        </View>
        
             
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -86,6 +87,7 @@ const MessageScreen = () => {
             shadowOpacity: 2,
             shadowRadius: 2,
             width: "80%",
+            marginBottom: "6%",
             marginLeft: "auto",
             marginRight: "auto",
             borderRadius: 15,
@@ -96,6 +98,7 @@ const MessageScreen = () => {
                 width: 20,
                 flex: 1,
                 textAlign: 'left',
+                color: "black"
 
             }}
             placeholder="Send Message..."
@@ -106,10 +109,23 @@ const MessageScreen = () => {
           <Button title='send' onPress={sendMessage} color="#FF5864"/>
           </View>
        
-    </SafeAreaView>
+    </View>
   )
 }
 
 export default MessageScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    chatName:{
+        fontSize: 25,
+        fontWeight: "bold",
+        marginLeft: "auto",
+        marginRight: "auto",
+    },
+    header:{
+        padding: "10%",
+        backgroundColor: "#fcfcfc",
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20,
+    }
+})

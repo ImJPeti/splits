@@ -18,7 +18,6 @@ export default function App() {
         <KeyboardAvoidingView style={{flex: 1}}
 
           behavior={Platform.OS === "ios"? "padding":"height"}
-        
         >
         <StackNavigator />
         </KeyboardAvoidingView>

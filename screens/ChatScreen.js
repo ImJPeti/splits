@@ -10,7 +10,6 @@ const ChatScreen = () => {
   return (
     <SafeAreaView>
       <ChatList />
-      <Header title="teszt"/>
     </SafeAreaView>
   );
 };

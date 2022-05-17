@@ -51,53 +51,27 @@ const ChatRow = ({ matchDetails, newMatches }) => {
 
 
   return (
-      <SafeAreaView>
-    
-      <TouchableOpacity
-        style={{
-          top: 20,
-          borderRadius: 10,
-          marginRight: 10,
-          left: 10,
-          flexDirection: "row",
-          alignItems: "center",
-          padding: 10,
-        }}
+      <View>
+      <TouchableOpacity style={styles.chat}
         onPress={() =>
           navigation.navigate("Message", {
             matchDetails,
           })
         }
       >
-        <Image
-          style={{
-            borderRadius: 100,
-            height: 90,
-            width: 90,
-          }}
+        <Image style={{borderRadius: 100, height: 70, width: 70,}}
           source={{ uri: matchedUserInfo?.photoURL }}
         />
         <View>
-          <Text
-            style={{
-              fontSize: 20,
-              padding: 4,
-              fontWeight: "bold",
-            }}
-          >
+          <Text style={{fontSize: 20, padding: 3,fontWeight: "bold"}}>
             {matchedUserInfo?.fname} {matchedUserInfo?.lname}
           </Text>
-          <Text
-            style={{
-              padding: 4,
-              fontSize: 15,
-            }}
-          >
+          <Text style={{padding: 3, fontSize: 16, maxWidth: "90%"}}>
             {lastMessage || "Say hi!"}
           </Text>
         </View>
       </TouchableOpacity>
-      </SafeAreaView>
+      </View>
   );
 };
 
@@ -112,6 +86,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "flex-start",
+  },
+  chat:{
+   
+      top: 20,
+      borderRadius: 10,
+      marginRight: 10,
+      left: 10,
+      flexDirection: "row",
+      alignItems: "center",
+      padding: 10,
+    
   }
   
 });
