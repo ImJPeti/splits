@@ -1,0 +1,111 @@
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ImagePickerIOS,   } from 'react-native';
+import React, {useState} from 'react';
+import { useNavigation } from '@react-navigation/core';
+import useAuth from '../hooks/useAuth';
+import {db,  } from '../firebase';
+import {doc, setDoc, serverTimestamp} from '@firebase/firestore';
+import ImagePicker from 'react-native-image-picker';
+
+
+export default function ModalScreen() {
+    const { user } = useAuth();
+    const [image, setImage] = useState(null);
+    const [job, setJob] = useState(null);
+    const [age, setAge] = useState(null);
+    const navigation = useNavigation();
+
+
+    const incompleteForm = !image || !job || !age;
+
+    const updateUserProfile = () =>{
+        setDoc(doc(db, 'users', user.uid), {
+            id: user.uid,
+            displayName: user.displayName,
+            photoURL: image,
+            job: job,
+            age: age,
+            timestamp: serverTimestamp()
+        }).then(()=>{
+            navigation.navigate('Home')
+        }).catch(error => {
+            alert(error.message);
+        })
+    }
+    
+  return (
+    <View style={styles.ModalScreen}>
+      <Image 
+        style={styles.logo}
+        source={require('../logo.png')}
+      />
+
+      <Text style={styles.welcome}> Welcome {user.displayName} </Text>
+
+
+      <Text style={{textAlign: "center", fontSize: 15, paddingTop: 17, color: "red"}}>
+          Step 2: The job
+      </Text>
+      <TextInput 
+        value={job}
+        onChangeText={setJob}
+        style={{textAlign: "center", padding: 10, fontSize: 16}}
+        placeholder="Enter your job"
+      />
+
+      <Text style={{textAlign: "center", fontSize: 15, paddingTop: 17, color: "red"}}>
+          Step 3: Your age
+      </Text>
+      <TextInput
+        value={age}
+        maxLength={2}
+        onChangeText={setAge}
+        style={{textAlign: "center", padding: 10, fontSize: 16, paddingBottom: 100}}
+        placeholder="your age"
+        keyboardType='numeric'
+      />
+
+      <TouchableOpacity
+        disabled={incompleteForm}
+        style={[styles.updateProfileButton,
+            incompleteForm ? styles.incomplete : styles.updateProfileButton
+        ]}
+        onPress={updateUserProfile}
+        
+      >
+          <Text style={{textAlign: "center", color: "black", width: 120, marginLeft: "auto", marginRight:"auto"}}>Update Profile</Text>
+      </TouchableOpacity>
+
+    </View>
+  );
+}
+
+const styles = StyleSheet.create(
+    {
+    logo:{
+        height: 200,
+        width: 200,
+        marginVertical: -35,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+    
+    },
+    welcome:{
+        textAlign: "center",
+        color: "grey",
+        fontWeight: "bold",
+        fontSize: 17,
+    },
+    updateProfileButton:{
+        bottom: 0,
+        marginLeft: "auto",
+        marginRight: "auto",
+        padding: 20,
+        textAlign: "center",
+        width: 200,
+        backgroundColor: "rgba(2, 166, 4, 0.41)",
+        borderRadius: 30,
+    },
+    incomplete:{
+        backgroundColor: "grey",
+    }
+});
