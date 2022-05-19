@@ -9,6 +9,7 @@ const SenderMessage = ({message}) => {
       borderBottomRightRadius: 0,
       borderRadius: 15,
       padding: 3,
+      right: "20%",
       top: 40,
       marginVertical: 5,
       maxWidth: "76%",

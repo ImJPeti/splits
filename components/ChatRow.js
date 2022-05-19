@@ -66,7 +66,7 @@ const ChatRow = ({ matchDetails, newMatches }) => {
           <Text style={{fontSize: 20, padding: 3,fontWeight: "bold"}}>
             {matchedUserInfo?.fname} {matchedUserInfo?.lname}
           </Text>
-          <Text style={{padding: 3, fontSize: 16, maxWidth: "90%"}}>
+          <Text style={{padding: 3, fontSize: 16, maxWidth: "90%", opacity: 0.6}}>
             {lastMessage || "Say hi!"}
           </Text>
         </View>
