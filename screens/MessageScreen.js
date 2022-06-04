@@ -6,17 +6,13 @@ import {
   TextInput,
   Button,
   Image,
-  KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
   FlatList,
-  Animated,
-  Easing,
   TouchableOpacity,
   ImageBackground,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import Header from "../components/Header";
 import getMatchedUserInfo from "../lib/getMatchedUserinfo";
 import useAuth from "../hooks/useAuth";
 import { useRoute } from "@react-navigation/native";
