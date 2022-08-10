@@ -45,16 +45,12 @@ const HomeScreen = () => {
   const swipeRef = useRef(null);
 
 
-  let adUnitId = Platform.select({
-    ios: "ca-app-pub-3666417548845300/9082191636",
-    android: "ca-app-pub-3666417548845300/3777894065",
-  });
-  let loadAd = async()=>{
-    await AdMobBanner.setAdUnitId(adUnitId);
-    await AdMobBanner.requestAdAsync();
-  }
-  
-loadAd();
+  function splitName(){
+    let splitted = user.displayName.split(" ")
+    let LastName = splitted[1];
+
+    return LastName;
+}
 
   useLayoutEffect(
     () =>
@@ -160,20 +156,20 @@ loadAd();
   return (
     <SafeAreaView style={styles.SafeAreaView}>  
 
-      <View>
-        <TouchableOpacity>
-          <Text style={styles.Splits}>SPLITS</Text>
-        </TouchableOpacity>
+      <View style={{flexDirection: "row", alignItems: "center", marginLeft: "5%"}}>
+        <Image style={{width: 65, height: 65, borderRadius: 100}} source={{uri: user.photoURL}}/>
+        <Text style={{alignContent: "center", alignItems: "center", marginLeft: "4%", fontSize: 20}}>Hi, </Text>
+        <Text style={{fontWeight: "bold", fontSize: 20}}>{splitName()}</Text>
       </View>
 
 
       {/* Card */}
-      <View style={{ flex: 1, height: 120, top: 0 }}>
+      <View style={{flex: 1, height: 160, top: 0, }}>
         <Swiper
           ref={swipeRef}
           cards={profiles}
           containerStyle={{ backgroundColor: "transparent" }}
-          stackSize={2}
+          stackSize={1}
           cardIndex={0}
           animateCardOpacity
           verticalSwipe={false}
@@ -318,15 +314,7 @@ const styles = StyleSheet.create({
     left: 5,
     top: 3,
   },
-  Splits: {
-    top: "10%",
-    fontSize: 28,
-    marginTop: "2%",
-    fontWeight: "bold",
-    color: "#273c5a",
-    marginLeft: "auto",
-    marginRight: "auto",
-  },
+ 
   View: {
     alignItems: "center",
     position: "relative",
@@ -358,12 +346,13 @@ const styles = StyleSheet.create({
   },
   SwiperCard: {
     backgroundColor: "white",
-    height: 400,
+    height: 430,
     top: 0,
     borderRadius: 15,
     position: "relative",
     shadowColor: "#000",
     width: "100%",
+    marginRight: "auto",
     shadowOffset: {
       width: 0,
       height: 1,
@@ -374,6 +363,7 @@ const styles = StyleSheet.create({
   SafeAreaView: {
     flex: 1,
     backgroundColor: "white",
+    height: '100%',
   },
   CardImg: {
     flex: 1,

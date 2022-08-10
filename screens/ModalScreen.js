@@ -23,6 +23,9 @@ export default ModalScreen =()=> {
     const [image, setImage] = useState(null);
     const [job, setJob] = useState(null);
     const [age, setAge] = useState(null);
+    const [ageDay, setAgeDay] = useState(null);
+    const [ageMonth, setAgeMonth] = useState(null);
+    const [ageYear, setAgeYear] = useState(null);
     const [fname, setfname] = useState(null);
     const [lname, setLname] = useState(null);
     const [place, setPlace] = useState(null)
@@ -36,7 +39,9 @@ export default ModalScreen =()=> {
         displayName: user.displayName,
         photoURL: image,
         job: job,
-        age: age,
+        ageDay: ageDay,
+        ageMonth: ageMonth,
+        ageYear: ageYear,
         fname: fname,
         place: place,
         lname: lname,
@@ -73,61 +78,98 @@ export default ModalScreen =()=> {
       showsVerticalScrollIndicator={false}
     >
       <TouchableOpacity onPress={handlePickAvatar} >
-      <Image 
-        source={{uri: image}}
-        style={styles.avatar}
-             
-       />
+          <Image 
+            source={{uri: image}}
+            style={styles.avatar}
+          />
+            <View style={{left: "17%", bottom: "20%"}}>
+              <Ionicons name="add-circle" size={40} color="black" />
+            </View>
        </TouchableOpacity>
-        <Ionicons style={{marginTop: "auto", marginBottom: "auto"}} name="medal-outline" size={30} color="grey" />
                             
 
        <View>
-         <Text
-          style={{marginTop: 2}}
-         >Vezetéknév</Text>
-         <TextInput style={styles.adatok} 
-          value={fname}
-          placeholder='First Name'
-          placeholderTextColor="black"
-          autoCorrect={true}
-          //value={userData ? userData.fname : ''}
-          onChangeText={setfname}
-         />
-         <TextInput style={styles.adatok} 
-         value={lname}
-          placeholder='Last Name'
-          placeholderTextColor="black"
-          autoCorrect={true}
-          //value={userData ? userData.lname : ''}
-          onChangeText={setLname}
-         />
-         <TextInput style={styles.adatok} 
-         value={age}
-          placeholder='age'
-          placeholderTextColor="black"
-          keyboardType='numeric'
-          maxLength={2}
-          autoCorrect={false}
-          //value={userData ? userData.age : ''}
-          onChangeText={setAge}
-         />
-         <TextInput style={styles.adatok} 
-         value={job}
-          placeholder='job'
-          placeholderTextColor="black"
-          autoCorrect={true}
-          //value={userData ? userData.job : ''}
-          onChangeText={setJob}
-         />
-         <TextInput style={styles.adatok} 
-         value={place}
-          placeholder='Lakhely'
-          placeholderTextColor="black"
-          autoCorrect={true}
-          //value={userData ? userData.job : ''}
-          onChangeText={setPlace}
-         />
+         <Text style={{opacity: 0.7, fontSize: 14, fontWeight: "bold", color: "grey", marginBottom: "5%"}}>Your Name</Text>
+         <View style={{flexDirection: "row", marginBottom: "10%"}}>
+           <View style={{left: 0}}>
+                    <TextInput 
+                      textAlign='center'
+                      placeholder='First Name'
+                      placeholderTextColor={"grey"}
+                      style={{width: 150, borderBottomWidth: 1, top: 8, borderColor: "grey"}}
+                      value={fname}
+                      autoCorrect={true}
+                      onChangeText={setfname}
+                    />
+            </View>
+            <View style={{position: "absolute", right: 0}}>
+                <TextInput 
+                  textAlign='center'
+                  placeholder='Last Name'
+                  placeholderTextColor={"grey"}
+                  style={{width: 150, left: 3, borderBottomWidth: 1, top: 8, borderColor: "grey"}}
+                  value={lname}
+                  autoCorrect={true}
+                  onChangeText={setLname}
+                />
+            </View>
+          </View>
+          <Text style={{opacity: 0.7, fontSize: 14, fontWeight: "bold", color: "grey", marginBottom: "4%", marginTop: "5%"}}>Date of Birth</Text>
+            <View style={{flexDirection: "row"}}> 
+              <View style={styles.birthContainer}> 
+                <TextInput
+                  style={styles.birth}
+                  textAlign='center'
+                  placeholder='Day'
+                  placeholderTextColor={"grey"}
+                  value={ageDay}
+                  keyboardType='numeric'
+                  maxLength={2}
+                  autoCorrect={false}
+                  onChangeText={setAgeDay}
+                />
+              </View>
+              <View style={styles.birthContainer}> 
+                <TextInput 
+                  style={styles.birth}
+                  textAlign='center'
+                  placeholder='Month'
+                  
+                  placeholderTextColor={'grey'}
+                  value={ageMonth}
+                  keyboardType='numeric'
+                  maxLength={2}
+                  autoCorrect={false}
+                  onChangeText={setAgeMonth}
+                />
+              </View>
+              <View style={styles.birthContainer}> 
+                <TextInput
+                  style={styles.birth}
+                  textAlign='center'
+                  placeholder='Year'
+                  placeholderTextColor={"grey"}
+                  value={ageYear}
+                  keyboardType='numeric'
+                  maxLength={4}
+                  autoCorrect={false}
+                  onChangeText={setAgeYear}
+                />
+              </View>
+            </View>
+
+            <Text style={{marginTop: 2}}>Work</Text>
+            <TextInput style={styles.adatok} 
+            value={job}
+              autoCorrect={true}
+              onChangeText={setJob}
+            />
+            <Text style={{marginTop: 2}}>Your Place</Text>
+            <TextInput style={styles.adatok} 
+            value={place}
+              autoCorrect={true}
+              onChangeText={setPlace}
+            />
        </View>
 
        <TouchableOpacity style={styles.button} onPress={handleUpdate}>
@@ -154,9 +196,8 @@ const styles = StyleSheet.create({
     width: 300,
     left: "1%",
     padding: 15,
-    marginTop: 14,
-    borderWidth:2,
-    borderRadius: 100,
+    borderBottomWidth: 1,
+    borderColor: "grey"
   },
   userImg: {
     height: 150,
@@ -252,5 +293,17 @@ const styles = StyleSheet.create({
     elevation: 2,
     backgroundColor: "white",
 
+  },
+  birth:{
+    width: 100,
+    borderBottomWidth: 1,
+    alignItems: "center",
+    borderColor: "grey"
+  },
+  birthContainer:{
+    alignItems: "center",
+    position: "relative",
+    alignContent: "center",
+    padding: 5,
   }
 });

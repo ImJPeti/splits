@@ -4,17 +4,21 @@ import React from 'react'
 const SenderMessage = ({message}) => {
   return (
     <View style={{
-            backgroundColor: "purple",
-            opacity: 1,
-            borderRadius: 10,
-            padding: 10,
-            marginHorizontal: 10,
-            marginVertical: 10,
-            top: 34,
-            alignSelf: "flex-start",
-            marginLeft: "auto",
+      backgroundColor: "#589dad",
+      opacity: 0.9,
+      borderBottomRightRadius: 0,
+      borderRadius: 15,
+      padding: 3,
+      right: "20%",
+      top: 40,
+      marginVertical: 5,
+      maxWidth: "76%",
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignSelf: "flex-start",
+      marginLeft: "auto"
             }}>
-      <Text style={{color: "white", fontSize: 20}}>{message.message}</Text>
+      <Text style={{color: "white", fontSize: 17, padding: 10,}}>{message.message}</Text>
     </View>
   )
 }
