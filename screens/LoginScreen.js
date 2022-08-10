@@ -2,6 +2,8 @@ import { StyleSheet, Text, View, Button, ImageBackground, TouchableOpacity } fro
 import { useNavigation } from '@react-navigation/core';
 import React, { useLayoutEffect } from 'react';
 import useAuth from '../hooks/useAuth';
+import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
+import { Icon } from 'react-native-elements';
 
 
 const image= {uri: "https://tinder.com/static/tinder.png"};
@@ -21,14 +23,21 @@ const LoginScreen = () => {
     <View style={styles.container}>
       <ImageBackground source={require('../assets/Background.png')} resizeMode="cover" style={styles.image}>
 
-      <Text style={styles.Splits}>
-        SPLITS
-      </Text>
 
-      <TouchableOpacity style={styles.button} onPress={signInWithGoogle}>
-        <Text style={styles.btext}>Login with Google</Text>
+    <View style={{top: 260, flexDirection: "row", alignContent: "center", alignItems: "center", marginLeft: "auto", marginRight: "auto"}}>
+      <TouchableOpacity style={styles.getStarted}>
+        <Text style={{fontSize: 20, color: 'white', textAlign: "left"}}>Get started</Text>
       </TouchableOpacity>
-     
+      <TouchableOpacity style={styles.button} onPress={signInWithGoogle}>
+        <Icon name='google' type='font-awesome' color="black" size={30}></Icon>
+      </TouchableOpacity>
+      
+    </View> 
+    <View style={{top: 270, alignItems: "center", flexDirection: "row", alignContent: "center", marginLeft: "auto", marginRight: "auto",}}>
+      <Text style={{color: "rgba(0,0,0,0.5)", }}>Already have an account?</Text>
+      <Text> </Text>
+      <Text style={{color: "rgba(242,0,0,0.54)", fontWeight: "800"}}>Sign in</Text>
+    </View>
       </ImageBackground>
     </View>
   );
@@ -43,14 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     flexDirection: "row",
   },
-  Splits:{
-    color: "rgba(221,202,233,255)",
-    textAlign: "center",
-    top: "25%",
-    fontSize: 30,
-    fontWeight: "bold",
-    letterSpacing: 4,
-  },
+  
   LoginWithEmail:{
     backgroundColor: "white",
     borderRadius: 25,
@@ -84,17 +86,19 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   button:{
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 23,
-    paddingHorizontal: 3,
-    borderRadius: 25,
-    marginLeft: "auto",
-    marginRight: "auto",
-    marginTop: 350,
-    width: 250,
-    elevation: 2,
-    backgroundColor: "white",
-
+    top: 0,
+    backgroundColor: "rgba(0,0,0,0.11)",
+    alignContent: "center",
+    alignItems: "center",
+    right: "5%",
+    padding: "4%",
+    borderRadius: 10,
+  },
+  getStarted:{
+    top: 0,
+    backgroundColor: "black",
+    padding: "5%",
+    marginRight: "4%",
+    borderRadius: 10,
   }
 });

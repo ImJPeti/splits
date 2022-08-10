@@ -62,6 +62,7 @@ export default function MyPofile() {
       <View
         style={{
           flexDirection: "row",
+          alignItems: "center",
           alignContent: "center",
           width: "100%",
           marginBottom: "5%",
@@ -74,10 +75,11 @@ export default function MyPofile() {
             fontSize: 20,
             fontWeight: "bold",
             marginRight: "auto",
+            marginLeft: "auto",
             top: 5,
           }}
         >
-          My Profile
+          Profile
         </Text>
         <TouchableOpacity
           onPress={() => navigation.navigate("EditProfile")}
@@ -86,7 +88,16 @@ export default function MyPofile() {
         <Text>Beállítások</Text>
         </TouchableOpacity>
       </View>
-      <ScrollView
+      
+        <View style={{
+          width: '100%',
+          alignContent: "center",
+        }}>
+        <Image style={styles.userImg} source={{ uri: user.photoURL }} />
+        <Text style={styles.userName}>{user.displayName}</Text>
+        </View>
+        
+        <ScrollView
         style={styles.container}
         contentContainerStyle={{
           justifyContent: "center",
@@ -94,19 +105,6 @@ export default function MyPofile() {
         }}
         showsVerticalScrollIndicator={false}
       >
-        <View style={
-          {
-            flexDirection: "row",
-            padding: "2%",
-            marginRight: "auto",
-            marginBottom: "10%",
-          }
-        }>
-        <Image style={styles.userImg} source={{ uri: user.photoURL }} />
-        <Text style={styles.userName}>{user.displayName}</Text>
-        </View>
-        
-            
         <Text
           style={{
             marginRight: "auto",
@@ -298,19 +296,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   userImg: {
-    height: 120,
+    height: 100,
+    marginTop: "2%",
+    marginLeft: "auto",
     marginRight: "auto",
-    width: 120,
+    alignContent: "center",
+    width: 100,
     borderRadius: 75,
   },
   userName: {
     fontSize: 20,
-    alignContent: "center",
-    alignItems: "center",
     top: "6%",
-    marginLeft: "3%",
+    marginLeft: "auto",
     marginRight: "auto",
-    fontWeight: "bold",
+    fontWeight: "500",
     marginTop: 10,
     marginBottom: 10,
   },
