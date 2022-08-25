@@ -8,6 +8,7 @@ import {
   StyleSheet,
   ViewComponent,
   Platform,
+  Animated,
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import React, { useLayoutEffect, useRef, useState, useEffect } from "react";
@@ -51,6 +52,9 @@ const HomeScreen = () => {
 
     return LastName;
 }
+
+
+
 
   useLayoutEffect(
     () =>
@@ -169,10 +173,13 @@ const HomeScreen = () => {
           ref={swipeRef}
           cards={profiles}
           containerStyle={{ backgroundColor: "transparent" }}
+          showSecondCard={false}
+          animateOverlayLabelsOpacity={true}
           stackSize={1}
           cardIndex={0}
           animateCardOpacity
-          verticalSwipe={false}
+          disableBottomSwipe={true}
+          verticalSwipe={true}
           onSwipedLeft={(cardIndex) => {
             console.log("SWIPE PASS");
             swipeLeft(cardIndex);
@@ -181,6 +188,15 @@ const HomeScreen = () => {
             console.log("SWIPE MATCH");
             swipeRight(cardIndex);
           }}
+          onTapCard={(cardIndex)=>{
+            console.log("Tap");
+          }}
+          cardStyle={{
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+          }}
           overlayLabels={{
             left: {
               title: "NOPE",
@@ -188,17 +204,40 @@ const HomeScreen = () => {
                 label: {
                   textAlign: "right",
                   color: "red",
+                  borderColor: "red",
+                  borderWidth: 2,
+                 transform: [{rotate: "45deg"}]
+
                 },
+                wrapper:{
+                  flexDirection: 'column',
+                  alignItems: 'flex-end',
+                  justifyContent: 'flex-start',
+                  marginTop: 15,
+                }
               },
             },
             right: {
-              title: "MATCH",
+              title: "LIKE",
               style: {
                 label: {
                   color: "#4DED30",
+                  textAlign: "left",
+                  borderColor:"#4DED30",
+                  borderWidth: 2,
+                  transform: [{rotate: "-45deg"}]
                 },
+                wrapper:{
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  justifyContent: 'flex-start',
+                  marginTop: 15,
+                }
               },
             },
+            botom:{
+
+            }
           }}
           renderCard={(card) =>
             card ? (
@@ -346,9 +385,9 @@ const styles = StyleSheet.create({
   },
   SwiperCard: {
     backgroundColor: "white",
-    height: 430,
+    height: "100%",
     top: 0,
-    borderRadius: 15,
+    borderRadius: 0,
     position: "relative",
     shadowColor: "#000",
     width: "100%",
