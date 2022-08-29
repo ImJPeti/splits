@@ -14,6 +14,8 @@ import ChatRow from "../components/ChatRow";
 import ChatRowHeader from "./ChatRowHeader";
 import HeadRow from "../components/HeadRow";
 import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
+import FooterNav from "./FooterNav";
+
 
 const ChatList = () => {
   const [matches, setMatches] = useState([]);
@@ -148,6 +150,7 @@ const ChatList = () => {
       </Text>
     </View>
   );
+
 };
 
 export default ChatList;

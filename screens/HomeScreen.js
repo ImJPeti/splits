@@ -16,6 +16,7 @@ import useAuth from "../hooks/useAuth";
 import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
 import Swiper from "react-native-deck-swiper";
 import { db } from "../firebase";
+import FooterNav from "../components/FooterNav";
 import {
   collection,
   doc,
@@ -116,7 +117,7 @@ const HomeScreen = () => {
     if (!profiles[cardIndex]) return;
 
     const userSwiped = profiles[cardIndex];
-    const loggedProfile = await (
+    const loggedProfile =(
       await getDoc(doc(db, "users", user.uid))
     ).data();
 
@@ -287,29 +288,7 @@ const HomeScreen = () => {
         />
       </View>
       
-  {/*FOOTER NAV*/}
-  <View style={styles.View}>
-        <TouchableOpacity
-          style={styles.TouchableOpacity}
-          onPress={() => navigation.navigate("MyProfile")}
-        >
-          <Ionicons name="ios-person" size={40} color="#273c5a"/>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={()=>navigation.navigate("Cab")}
-        >
-          <Ionicons name="car-sport-sharp" size={40} color="#273c5a"/>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.chatBubble}
-          onPress={() => navigation.navigate("Chat")}
-        >
-          <Ionicons name="chatbubble-sharp" size={40} color="#273c5a"/>
-        </TouchableOpacity>
-      </View>
-      {/* End FOOTER NAV*/}
+        <FooterNav />
 
     </SafeAreaView>
      /* { 
@@ -359,14 +338,14 @@ const styles = StyleSheet.create({
     position: "relative",
     alignContent: "center",
     padding: 5,
-    top: 0,
-    backgroundColor: "white",
+    top: 10,
+    backgroundColor: "transparent",
     height: "8%",
     marginLeft: "auto",
     marginRight: "auto",
     borderBottomColor: "black",
     borderTopColor: "black",
-    width: "50%",
+    width: "80%",
     borderRadius: 20,
     marginBottom: "5%",
     shadowColor: "grey",
