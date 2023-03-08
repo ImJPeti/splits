@@ -1,5 +1,6 @@
-# splits
+# SPLITS - DATING APP
 
-- EXPO - CLI
-- Yarn
-- firebase
+### I wrote this application in react native and used the latest technologies
+
+## Technologies used
+
