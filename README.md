@@ -23,3 +23,7 @@
 ### ✔️ Google places autocomplete
 ### ✔️ Realtime Map in the application.
 ### And more funny stuff
+
+
+
+### ![splits](https://user-images.githubusercontent.com/47251645/223759097-2f7d66bc-730b-4b08-a1d4-4035e333a584.jpg)
