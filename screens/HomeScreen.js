@@ -29,11 +29,7 @@ import {
   serverTimestamp,
 } from "@firebase/firestore";
 import generateId from "../lib/generateId";
-import {AdMobBanner,
-  AdMobInterstitial,
-  PublisherBanner,
-  AdMobRewarded,
-  setTestDeviceIDAsync,} from "expo-ads-admob";
+
 //IOS HOME: ca-app-pub-3666417548845300/2874153739
 //IOS CHAT: ca-app-pub-3666417548845300/3590191805
 

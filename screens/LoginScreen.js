@@ -36,7 +36,7 @@ const LoginScreen = () => {
     <View style={{top: 270, alignItems: "center", flexDirection: "row", alignContent: "center", marginLeft: "auto", marginRight: "auto",}}>
       <Text style={{color: "rgba(0,0,0,0.5)", }}>Already have an account?</Text>
       <Text> </Text>
-      <Text style={{color: "rgba(242,0,0,0.54)", fontWeight: "800"}}>Sign in</Text>
+      <Text style={{color: "rgba(242,0,0,0.54)", fontWeight: "800"}} onPress={signInWithGoogle}>Sign in</Text>
     </View>
       </ImageBackground>
     </View>

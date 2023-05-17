@@ -1,20 +1,30 @@
 Arguments: 
-  /usr/bin/node /usr/bin/yarn add react-native-haptic-feedback
+  C:\Program Files\nodejs\node.exe C:\Users\jovan\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add expo@^48.0.0
 
 PATH: 
-  /usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\jovan\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\jovan\AppData\Local\Programs\Python\Python311\;C:\Users\jovan\AppData\Local\Microsoft\WindowsApps;;C:\Users\jovan\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\jovan\AppData\Roaming\npm
 
 Yarn version: 
   1.22.19
 
 Node version: 
-  18.8.0
+  18.15.0
 
 Platform: 
-  linux x64
+  win32 x64
 
 Trace: 
-  Error: EACCES: permission denied, unlink '/home/jovanovicsp/Dokumentumok/splits/node_modules/.yarn-integrity'
+  Invariant Violation: expected hoisted manifest for "babel-preset-expo#metro-react-native-babel-preset#@babel/core#@babel/helper-compilation-targets#browserslist"
+      at invariant (C:\Users\jovan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:2318:15)
+      at _loop2 (C:\Users\jovan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:91029:9)
+      at PackageHoister.init (C:\Users\jovan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:91099:19)
+      at PackageLinker.getFlatHoistedTree (C:\Users\jovan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:48549:20)
+      at PackageLinker.<anonymous> (C:\Users\jovan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:48560:27)
+      at Generator.next (<anonymous>)
+      at step (C:\Users\jovan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\jovan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:328:14
+      at new Promise (<anonymous>)
+      at new F (C:\Users\jovan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:5305:28)
 
 npm manifest: 
   {
